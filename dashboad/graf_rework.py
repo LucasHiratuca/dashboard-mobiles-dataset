@@ -47,17 +47,17 @@ class HomePage:
         sns.barplot(x=avg_price.values, y=avg_price.index, palette="viridis", ax=ax1)
         st.pyplot(fig1)
 
-        # Gráfico 2: Preço vs Bateria
+        # Gráfico 2: Preço vs Bateria 
         st.markdown("#### Preço vs Capacidade da Bateria")
         fig2, ax2 = plt.subplots(figsize=(10, 6))
         sns.scatterplot(data=df_filtered, x="Battery Capacity", y="Launched Price (USA)", hue="Company Name", ax=ax2)
         st.pyplot(fig2)
 
-        # Gráfico 3: Tamanho da Tela por Marca
+        # Gráfico 3: Tamanho da Tela por Marca (Tentando mudar para barra)
         st.markdown("#### Distribuição do Tamanho da Tela por Marca")
         fig3, ax3 = plt.subplots(figsize=(12, 6))
-        sns.boxplot(data=df_filtered, x="Company Name", y="Screen Size", palette="Set3", ax=ax3)
-        ax3.tick_params(axis='x', rotation=45)
+        avg_size = df_filtered.groupby("Company Name")["Screen Size"].mean().sort_values(ascending=False)
+        sns.barplot(x=avg_price.values, y=avg_price.index, palette="viridis", ax=ax1)
         st.pyplot(fig3)
 
         # Gráfico 4: Preço vs RAM
