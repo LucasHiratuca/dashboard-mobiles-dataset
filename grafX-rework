@@ -57,7 +57,7 @@ class HomePage:
         st.markdown("#### Distribuição do Tamanho da Tela por Marca")
         fig3, ax3 = plt.subplots(figsize=(12, 6))
         sns.boxplot(data=df_filtered, x="Company Name", y="Screen Size", palette="Set3", ax=ax3)
-        ax3.tick_params(axis='x', rotation=45)
+        sns.scatterplot(data=df_filtered, x="Company Name", y="Screen Size", hue="Company Name", ax=ax2)
         st.pyplot(fig3)
 
         # Gráfico 4: Preço vs RAM
